@@ -10,4 +10,10 @@ import lombok.NoArgsConstructor;
 public class TransferDTO extends Transfer{
     private int amount;
     private String purpose;
+
+    public TransferDTO(String toAccountNumber, String accountName, String bankName, int branchCode, int amount, String purpose) {
+        super(toAccountNumber,accountName,bankName,branchCode);
+        this.amount = amount;
+        this.purpose = purpose;
+    }
 }
