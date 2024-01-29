@@ -17,11 +17,9 @@ public class BankingApplication implements CommandLineRunner {
 
 	private static Logger logger = LoggerFactory.getLogger(BankingApplication.class);
 	private static CustomerService customerService;
-	private static TransferService transferService;
 
-	public BankingApplication(CustomerService _customerService, TransferService _transferService) {
-		customerService = _customerService;
-		transferService = _transferService;
+	public BankingApplication(CustomerService customerService) {
+		this.customerService = customerService;
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -35,7 +33,7 @@ public class BankingApplication implements CommandLineRunner {
 
 		if (valid) {
 			// call bank services view
-			BankServiceView bankServiceView = new BankServiceView(transferService);
+			BankServiceView bankServiceView = new BankServiceView();
 			bankServiceView.provideListOfBankServicesToChoose();
 		}
 	}

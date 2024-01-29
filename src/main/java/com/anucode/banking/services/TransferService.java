@@ -18,11 +18,11 @@ public class TransferService {
     private CustomerDataAccess customerDataAccess;
     private OtpService otpService;
 
-    public TransferService(TransferDataAccess transferDataAccess, AccountDataAccess accountDataAccess, CustomerDataAccess customerDataAccess, OtpService otpService) {
-        this.transferDataAccess = transferDataAccess;
-        this.accountDataAccess = accountDataAccess;
-        this.customerDataAccess = customerDataAccess;
-        this.otpService = otpService;
+    public TransferService() {
+        this.transferDataAccess = new TransferDataAccess();
+        this.accountDataAccess = new AccountDataAccess();
+        this.customerDataAccess = new CustomerDataAccess();
+        this.otpService = new OtpService();
     }
 
     public Transfer getReceiverDetails(String accountNumber) {

@@ -1,6 +1,5 @@
 package com.anucode.banking.views;
 
-import com.anucode.banking.dataAccess.CustomerDataAccess;
 import com.anucode.banking.models.Account;
 import com.anucode.banking.models.AccountData;
 import com.anucode.banking.models.Customer;
@@ -11,6 +10,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static com.anucode.banking.utility.ExceptionHandler.handleException;
+
 
 public class CustomerView {
     private Customer user = new Customer();

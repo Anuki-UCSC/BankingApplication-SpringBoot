@@ -1,5 +1,7 @@
 package com.anucode.banking.views;
 
+import org.springframework.stereotype.Component;
+
 public class BillPaymentView implements BankingView {
     @Override
     public void showView() throws Exception {

@@ -1,5 +1,8 @@
 package com.anucode.banking.views;
 
+
+import org.springframework.stereotype.Component;
+
 public class AccountHistoryView implements BankingView {
     @Override
     public void showView() throws Exception {
