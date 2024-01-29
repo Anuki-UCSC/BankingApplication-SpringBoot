@@ -11,6 +11,7 @@ import com.anucode.banking.validations.InputValidations;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class TransferMoneyView implements BankingView {
     private BackToMenuView backToMenuView;
     private TransferService transferService;
@@ -19,13 +20,13 @@ public class TransferMoneyView implements BankingView {
     public Scanner scanner = new Scanner(System.in);
 
 
-    public TransferMoneyView(TransferService transferService) {
+    public TransferMoneyView() {
         BankOption bankOption1 = new BankOption(1, "Own Bank", "OWN");
         BankOption bankOption2 = new BankOption(2, "Other Bank", "OTHER");
         bankOptionsList.add(bankOption1);
         bankOptionsList.add(bankOption2);
         this.transferDTO = new TransferDTO();
-        this.transferService = transferService;
+        this.transferService = new TransferService();
 
     }
     @Override
@@ -108,7 +109,7 @@ public class TransferMoneyView implements BankingView {
             this.receiverDetails(code, toAccountNumber);
         }else {
             System.out.println("Invalid input");
-            this.backToMenuView = new BackToMenuView(transferService);
+            this.backToMenuView = new BackToMenuView();
             this.backToMenuView.showView();
         }
     }
@@ -123,7 +124,7 @@ public class TransferMoneyView implements BankingView {
                 break;
 
             default:
-                this.backToMenuView = new BackToMenuView(transferService);
+                this.backToMenuView = new BackToMenuView();
                 this.backToMenuView.showView();
                 break;
         }
@@ -181,11 +182,11 @@ public class TransferMoneyView implements BankingView {
             System.out.println("Transaction success!");
             System.out.printf("LKR %d has been successfully paid to account %s.",transferDTO.getAmount(), transferDTO.getToAccountNumber());
             System.out.println();
-            this.backToMenuView = new BackToMenuView(transferService);
+            this.backToMenuView = new BackToMenuView();
             this.backToMenuView.showView();
         }else{
             System.out.println("Transaction failed!");
-            this.backToMenuView = new BackToMenuView(transferService);
+            this.backToMenuView = new BackToMenuView();
             this.backToMenuView.showView();
         }
     }
@@ -193,7 +194,7 @@ public class TransferMoneyView implements BankingView {
     public void invalidWarningAndRouteToMenu(boolean isvalid) throws Exception {
         if(!isvalid) {
             System.out.println("Your account balance in insufficient! Unable to proceed.");
-            this.backToMenuView = new BackToMenuView(transferService);
+            this.backToMenuView = new BackToMenuView();
             this.backToMenuView.showView();
         }
     }

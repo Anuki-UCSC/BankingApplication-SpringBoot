@@ -2,6 +2,7 @@ package com.anucode.banking.views;
 
 import com.anucode.banking.exception.MinusInputValueException;
 import com.anucode.banking.services.TransferService;
+import org.springframework.stereotype.Component;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -9,10 +10,7 @@ import java.util.Scanner;
 import static com.anucode.banking.utility.ExceptionHandler.handleException;
 
 public class BankServiceView {
-    private TransferService transferService;
-
-    public BankServiceView(TransferService transferService) {
-        this.transferService = transferService;
+    public BankServiceView() {;
     }
 
     public void provideListOfBankServicesToChoose() throws Exception {
@@ -39,7 +37,7 @@ public class BankServiceView {
                     view = new BillPaymentView();
                     break;
                 case 3:
-                    view = new TransferMoneyView(transferService);
+                    view = new TransferMoneyView();
                     break;
                 case 4:
                     view = new ContactBankView();
@@ -47,7 +45,7 @@ public class BankServiceView {
                 default:
                     System.out.println("-----------------");
                     System.out.printf("Unexpected input %d !",serviceNumber);
-                    view = new BackToMenuView(transferService);
+                    view = new BackToMenuView();
                     break;
             }
             view.showView();

@@ -5,11 +5,8 @@ import com.anucode.banking.services.TransferService;
 import java.util.Scanner;
 
 public class BackToMenuView implements BankingView {
+    public BackToMenuView() {
 
-    private TransferService transferService;
-
-    public BackToMenuView(TransferService transferService) {
-        this.transferService = transferService;
     }
 
     @Override
@@ -38,7 +35,7 @@ public class BackToMenuView implements BankingView {
         }while (loop);
 
         if(returnval){
-            BankServiceView bankServiceView = new BankServiceView(transferService);
+            BankServiceView bankServiceView = new BankServiceView();
             bankServiceView.provideListOfBankServicesToChoose();
         }
     }
